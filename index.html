@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twende Education Foundation - Empowering East African Youth</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --scroll-y: 0;
+            --section-offset: 0;
+            --header-height: 4rem; /* Approximately height of header */
+        }
+        .parallax-section {
+            position: relative;
+            z-index: 1;
+            will-change: transform;
+        }
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 80, 67, 0.6);
+        }
+        .founder-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        .impact-icon {
+            transition: all 0.3s ease;
+        }
+        .impact-card:hover .impact-icon {
+            transform: scale(1.1);
+            color: #f59e0b;
+        }
+        .donate-btn {
+            position: relative;
+            overflow: hidden;
+        }
+        .donate-btn::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: rgba(255,255,255,0.1);
+            transform: translateX(-100%) rotate(45deg);
+            transition: all 0.6s ease;
+        }
+        .donate-btn:hover::after {
+            transform: translateX(100%) rotate(45deg);
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-gray-800 bg-gray-50">
+    <!-- Header with Navigation -->
+    <header class="fixed w-full bg-white shadow-md z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#" class="flex items-center space-x-2">
+                <img src="https://i.imgur.com/MpmE3BS.jpeg" alt="Twende Education Foundation Logo" class="h-10 w-auto">
+                <span class="text-xl font-bold text-green-800">Twende Education Foundation</span>
+            </a>
+            <nav class="hidden md:block">
+                <ul class="flex space-x-8">
+                    <li><a href="#home" class="text-gray-700 hover:text-green-600 font-medium transition">Home</a></li>
+                    <li><a href="#about" class="text-gray-700 hover:text-green-600 font-medium transition">About</a></li>
+                    <li><a href="#impact" class="text-gray-700 hover:text-green-600 font-medium transition">Impact</a></li>
+                    <li><a href="#founders" class="text-gray-700 hover:text-green-600 font-medium transition">Founders</a></li>
+                    <li><a href="#contact" class="text-gray-700 hover:text-green-600 font-medium transition">Contact</a></li>
+                </ul>
+            </nav>
+            <a href="#donate" class="px-4 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 transition font-medium">
+                Donate Now
+            </a>
+            <button class="md:hidden text-gray-700">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu (hidden by default) -->
+    <div class="fixed inset-0 bg-white z-40 hidden transform translate-x-full transition-transform duration-300" id="mobileMenu">
+        <div class="absolute top-0 right-0 p-4">
+            <button id="closeMobileMenu" class="text-gray-700">
+                <i class="fas fa-times text-2xl"></i>
+            </button>
+        </div>
+        <div class="flex flex-col items-center justify-center h-full space-y-8">
+            <a href="#home" class="text-gray-700 text-xl font-medium">Home</a>
+            <a href="#about" class="text-gray-700 text-xl font-medium">About</a>
+            <a href="#impact" class="text-gray-700 text-xl font-medium">Impact</a>
+            <a href="#founders" class="text-gray-700 text-xl font-medium">Founders</a>
+            <a href="#contact" class="text-gray-700 text-xl font-medium">Contact</a>
+            <a href="#donate" class="px-6 py-3 bg-blue-600 text-white rounded-full text-xl">Donate Now</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section relative h-screen flex items-center justify-center text-white overflow-hidden" style="padding-top: var(--header-height); margin-bottom: var(--header-height)">
+        <div class="absolute inset-0 bg-gradient-to-b from-blue-900/90 to-blue-900/80"></div>
+        <img src="https://i.imgur.com/WQCVBnK.jpeg" 
+             alt="Twende Education Foundation students" 
+             class="fixed w-full h-full object-cover">
+        
+        <div class="relative z-10 text-center px-4 max-w-3xl mt-24 md:mt-32 parallax-section" 
+             style="transform: translateY(calc(var(--scroll-y) * 0.5px))">
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight text-white [text-shadow:_0_2px_8px_rgba(0,0,0,0.8)]">Empowering Youth Through Education in East Africa</h1>
+            <div class="inline-block px-6 py-3 bg-black/60 rounded-lg backdrop-blur-sm mb-8">
+                <p class="text-xl md:text-2xl font-semibold text-white [text-shadow:_0_2px_8px_rgba(0,0,0,0.8)]">
+                    Twende means "let's go" - and since 2025, we've been doing just that, empowering youth in Mwanza and beyond through education.
+                </p>
+            </div>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#donate" class="donate-btn px-8 py-3 bg-yellow-500 hover:bg-yellow-600 text-white font-bold rounded-full transition duration-300 text-lg">
+                    Support Our Mission
+                </a>
+                <a href="#about" class="px-8 py-3 bg-transparent border-2 border-white hover:bg-white hover:text-blue-800 text-white font-bold rounded-full transition duration-300 text-lg">
+                    Learn More
+                </a>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-8 left-0 right-0 text-center">
+            <a href="#about" class="animate-bounce inline-block">
+                <i class="fas fa-chevron-down text-white text-2xl"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="pt-24 pb-16 bg-white parallax-section" style="scroll-margin-top: calc(var(--header-height) + 20px)">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">About Twende Foundation</h2>
+                <div class="h-1 w-24 bg-yellow-500 mx-auto mb-6"></div>
+                <div class="max-w-2xl mx-auto text-left">
+                    <p class="text-lg text-gray-600">
+                        Founded in May 2025, Twende Education Foundation was launched by seven students from Ivey Business School at Western University during a guest lecturing trip to St. Augustine University of Tanzania, part of the Africa Service Learning program. Over the course of the trip, we taught more than 80 students across undergraduate, master's, and PhD programs using the Ivey Case Method - a discussion-based approach grounded in real-world decision-making and collaborative learning.
+                    </p>
+                    <p class="text-lg text-gray-600 mt-4">
+                        Inspired by the students we met and the urgent needs of the community around us, we co-founded Twende ("Let's Go") to expand access to education across East Africa. What began with a $10,000 fundraising goal quickly turned into something more. Together, we raised over $13,000 to launch the foundation and deliver immediate, on-the-ground support.
+                    </p>
+                    <p class="text-lg text-gray-600 mt-4">
+                        Working closely with Saint Augustine University of Tanzania faculty and administration, we helped design a merit- and need-based scholarship fund and led the strategic planning, fundraising, and execution of our first initiatives. Today, the seven co-founders continue to serve on Twende's Executive Board, overseeing operations, financial stewardship, and long-term growth - with a shared commitment to building sustainable impact.
+                    </p>
+                    <p class="text-lg text-gray-600 mt-4">
+                        While Twende was always envisioned as a long-term, year-over-year initiative, it's the overwhelming support we received that made it truly possible - thank you so much, and we're just getting started.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div class="bg-gray-50 p-8 rounded-xl shadow-md hover:shadow-lg transition">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-bullseye text-green-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-center text-green-800">Our Mission</h3>
+                    <p class="text-gray-600 text-center">
+                        To create opportunity through education by providing scholarships, school supplies, orphanage support, and expanding regionally.
+                    </p>
+                </div>
+                
+                <div class="bg-gray-50 p-8 rounded-xl shadow-md hover:shadow-lg transition">
+                    <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-heart text-yellow-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-center text-green-800">Our Values</h3>
+                    <p class="text-gray-600 text-center">
+                        Community-driven impact, long-term sustainability, equity in education, and direct, transparent action.
+                    </p>
+                </div>
+                
+                <div class="bg-gray-50 p-8 rounded-xl shadow-md hover:shadow-lg transition">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-arrow-up text-green-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-center text-green-800">Future Goals</h3>
+                    <p class="text-gray-600 text-center">
+                        Sustain annual scholarships, grow school relationships, and expand operations across East Africa.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section id="impact" class="pt-24 pb-16 bg-gray-50 parallax-section">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-black">Our Impact in 2025</h2>
+                <div class="h-1 w-24 bg-yellow-500 mx-auto mb-6"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Scholarship Impact -->
+                <div class="impact-card bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition cursor-default">
+                    <div class="flex items-center mb-6">
+                        <div class="impact-icon w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-university text-green-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-green-800">Higher Education</h3>
+                    </div>
+                    <p class="text-gray-600">
+                        Funded 3 two-year diploma scholarships at St. Augustine University of Tanzania for local high school graduates, with plans to sustain and grow this program year over year.
+                    </p>
+                </div>
+                
+                <!-- School Supplies Impact -->
+                <div class="impact-card bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition cursor-default">
+                    <div class="flex items-center mb-6">
+                        <div class="impact-icon w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-pencil-alt text-green-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-green-800">School Supplies</h3>
+                    </div>
+                    <p class="text-gray-600">
+                        Delivered a printer/photocopier, 2 couches, backpacks with school supplies for high-needs students, and 500+ pens and pencils to Bulemeji Secondary School.
+                    </p>
+                </div>
+                
+                <!-- Orphanage Support Impact -->
+                <div class="impact-card bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition cursor-default">
+                    <div class="flex items-center mb-6">
+                        <div class="impact-icon w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-home text-green-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-green-800">Orphanage Support</h3>
+                    </div>
+                    <p class="text-gray-600">
+                        Supplied Watoto Wa Africa Orphanage with a washing machine, 50+ textbooks, clothing, food, and essentials.
+                    </p>
+                </div>
+                
+                <!-- Fundraising Impact -->
+                <div class="impact-card bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition cursor-default">
+                    <div class="flex items-center mb-6">
+                        <div class="impact-icon w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-chart-line text-green-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-green-800">Fundraising Success</h3>
+                    </div>
+                    <p class="text-gray-600">
+                        Launched with an initial goal of $10,000, Twende has now raised over $13,000 - a milestone that helped turn a small idea into a fully operational foundation.
+                    </p>
+                </div>
+                
+                <!-- Community Engagement -->
+                <div class="impact-card bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition cursor-default">
+                    <div class="flex items-center mb-6">
+                        <div class="impact-icon w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-hands-helping text-green-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-green-800">Community Engagement</h3>
+                    </div>
+                    <p class="text-gray-600">
+                        Built strong relationships with local schools and orphanages to ensure sustainable, meaningful impact.
+                    </p>
+                </div>
+                
+                <!-- Long-term Vision -->
+                <div class="impact-card bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition cursor-default">
+                    <div class="flex items-center mb-6">
+                        <div class="impact-icon w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-eye text-green-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-green-800">Long-term Vision</h3>
+                    </div>
+                    <p class="text-gray-600">
+                        Creating sustainable programs that will continue to benefit communities for years to come.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo Gallery Section -->
+    <section class="py-12 bg-white parallax-section" 
+             style="transform: translateY(calc(var(--scroll-y) * 0.4px))">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-1">
+                <div class="h-48 md:h-64 overflow-hidden">
+                    <img src="https://i.imgur.com/pENpiih.jpeg" 
+                         alt="Twende students learning" 
+                         class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                </div>
+                <div class="h-48 md:h-64 overflow-hidden">
+                    <img src="https://i.imgur.com/A8Sx114.jpeg" 
+                         alt="Twende classroom activity" 
+                         class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                </div>
+                <div class="h-48 md:h-64 overflow-hidden">
+                    <img src="https://i.imgur.com/o2vDKez.jpeg" 
+                         alt="Twende students engaged" 
+                         class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                </div>
+                <div class="h-48 md:h-64 overflow-hidden">
+                    <img src="https://i.imgur.com/CUAI717.jpeg" 
+                         alt="Twende educational session" 
+                         class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Founders Section -->
+    <section id="founders" class="pt-24 pb-16 bg-green-800 text-white parallax-section">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Founders</h2>
+                <div class="h-1 w-24 bg-yellow-500 mx-auto mb-6"></div>
+                <p class="max-w-2xl mx-auto text-lg">
+                    Seven Ivey Business School students united by a shared vision during their Lecturing trip at Saint Augustine University of Tanzania in Mwanza in 2025.
+                </p>
+            </div>
+            
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 max-w-6xl mx-auto">
+                <!-- Founder Card 1 (Hin Cheung) -->
+                <div class="founder-card bg-white rounded-xl shadow-lg overflow-hidden transition duration-300">
+                    <div class="h-48 bg-gray-200 overflow-hidden">
+                        <img src="https://i.imgur.com/kzb2AaI.jpeg" alt="Hin Cheung" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-blue-800 mb-1">Hin Cheung</h3>
+                        <p class="text-gray-600 text-sm mb-3">Co-Founder</p>
+                        <div class="flex items-center text-yellow-600">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span class="text-gray-700">Toronto, Ontario</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Founder Card 2 (Kosta Liaskas) -->
+                <div class="founder-card bg-white rounded-xl shadow-lg overflow-hidden transition duration-300">
+                    <div class="h-48 bg-gray-200 overflow-hidden">
+                        <img src="https://i.imgur.com/YF9GgVH.jpeg" alt="Kosta Liaskas" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-blue-800 mb-1">Kosta Liaskas</h3>
+                        <p class="text-gray-600 text-sm mb-3">Co-Founder</p>
+                        <div class="flex items-center text-yellow-600">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span class="text-gray-700">Vancouver, British Columbia</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Founder Card 3 (Nathan Mark) -->
+                <div class="founder-card bg-white rounded-xl shadow-lg overflow-hidden transition duration-300">
+                    <div class="h-48 bg-gray-200 overflow-hidden">
+                        <img src="https://i.imgur.com/msKTAco.jpeg" alt="Nathan Mark" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-blue-800 mb-1">Nathan Mark</h3>
+                        <p class="text-gray-600 text-sm mb-3">Co-Founder</p>
+                        <div class="flex items-center text-yellow-600">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span class="text-gray-700">Toronto, Ontario</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Founder Card 4 (Aidan Prosser) -->
+                <div class="founder-card bg-white rounded-xl shadow-lg overflow-hidden transition duration-300">
+                    <div class="h-48 bg-gray-200 overflow-hidden">
+                        <img src="https://i.imgur.com/0csRchg.jpeg" alt="Aidan Prosser" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-blue-800 mb-1">Aidan Prosser</h3>
+                        <p class="text-gray-600 text-sm mb-3">Co-Founder</p>
+                        <div class="flex items-center text-yellow-600">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span class="text-gray-700">Vancouver, British Columbia</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Founder Card 5 (Julianna Rizzo) -->
+                <div class="founder-card bg-white rounded-xl shadow-lg overflow-hidden transition duration-300">
+                    <div class="h-48 bg-gray-200 overflow-hidden">
+                        <img src="https://i.imgur.com/6EG7q8A.jpeg" alt="Julianna Rizzo" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-blue-800 mb-1">Julianna Rizzo</h3>
+                        <p class="text-gray-600 text-sm mb-3">Co-Founder</p>
+                        <div class="flex items-center text-yellow-600">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span class="text-gray-700">London, Ontario</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Founder Card 6 (Sai Shankar) -->
+                <div class="founder-card bg-white rounded-xl shadow-lg overflow-hidden transition duration-300">
+                    <div class="h-48 bg-gray-200 overflow-hidden">
+                        <img src="https://i.imgur.com/VLQyeNu.jpeg" alt="Sai Shankar" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-blue-800 mb-1">Sai Shankar</h3>
+                        <p class="text-gray-600 text-sm mb-3">Co-Founder</p>
+                        <div class="flex items-center text-yellow-600">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span class="text-gray-700">Fort McMurray, Alberta</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Founder Card 7 (Adam Ward) -->
+                <div class="founder-card bg-white rounded-xl shadow-lg overflow-hidden transition duration-300">
+                    <div class="h-48 bg-gray-200 overflow-hidden">
+                        <img src="https://i.imgur.com/MtfCg4R.jpeg" alt="Adam Ward" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-blue-800 mb-1">Adam Ward</h3>
+                        <p class="text-gray-600 text-sm mb-3">Co-Founder</p>
+                        <div class="flex items-center text-yellow-600">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span class="text-gray-700">Vancouver, British Columbia</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donation Section -->
+    <section id="donate" class="pt-24 pb-16 bg-gradient-to-r from-green-600 to-green-800 parallax-section">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6 text-white">Support Our Mission</h2>
+            <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+                Every dollar donated goes directly towards scholarships, school supplies, infrastructure improvements, and supporting orphanages in Mwanza.
+            </p>
+            <a href="https://gofund.me/fb1cf0b6" 
+               class="inline-block px-8 py-4 bg-yellow-500 hover:bg-yellow-600 text-white font-bold rounded-full transition duration-300 text-lg">
+                Donate on GoFundMe
+            </a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="pt-24 pb-16 bg-white parallax-section">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Get In Touch</h2>
+                <div class="h-1 w-24 bg-yellow-500 mx-auto mb-6"></div>
+                <p class="max-w-2xl mx-auto text-lg text-gray-600">
+                    Have questions about our work? Want to get involved? We'd love to hear from you!
+                </p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-xl font-bold mb-6 text-blue-800">Contact Information</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mr-4 mt-1">
+                                <i class="fas fa-envelope text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-700">Email</h4>
+                                <p class="text-gray-600">a7educationfoundation@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mr-4 mt-1">
+                                <i class="fas fa-map-marker-alt text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-700">Based in</h4>
+                                <p class="text-gray-600">Mwanza, Tanzania & London, Ontario, Canada</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mr-4 mt-1">
+                                <i class="fas fa-globe text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-700">Follow Us</h4>
+                                <div class="mt-2">
+                                    <a href="https://www.linkedin.com/company/twende-education-foundation" 
+                                       class="inline-block w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 hover:bg-blue-600 hover:text-white transition">
+                                        <i class="fab fa-linkedin-in"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-6 text-blue-800">Send Us a Message</h3>
+                    <form action="mailto:a7educationfoundation@gmail.com" method="post" enctype="text/plain" class="space-y-4">
+                        <div>
+                            <label for="name" class="block text-gray-700 mb-2">Name</label>
+                            <input id="name" name="name" type="text" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-gray-700 mb-2">Email</label>
+                            <input id="email" name="email" type="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-gray-700 mb-2">Message</label>
+                            <textarea id="message" name="message" rows="4" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"></textarea>
+                        </div>
+                        <input type="hidden" name="_subject" value="New Contact Form Submission">
+                        <button type="submit" class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg transition">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-green-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <img src="https://i.imgur.com/MpmE3BS.jpeg" alt="Twende Education Foundation Logo" class="h-10 w-auto">
+                        <span class="text-xl font-bold">Twende</span>
+                    </div>
+                    <p class="text-blue-200 text-sm">
+                        Creating educational opportunities in East Africa since 2025.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-blue-200 hover:text-white transition">Home</a></li>
+                        <li><a href="#about" class="text-blue-200 hover:text-white transition">About Us</a></li>
+                        <li><a href="#impact" class="text-blue-200 hover:text-white transition">Our Impact</a></li>
+                        <li><a href="#donate" class="text-blue-200 hover:text-white transition">Donate</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-blue-800 mt-8 pt-8 text-center text-sm text-blue-300">
+                <p>&copy; 2025 Twende Education Foundation. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Add anchor offset to account for fixed header
+        const navbarHeight = document.querySelector('header').offsetHeight;
+        document.documentElement.style.setProperty('--scroll-padding', `${navbarHeight}px`);
+
+        // Mobile menu toggle
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuBtn = document.querySelector('header button.md\\:hidden');
+        const closeMobileMenu = document.getElementById('closeMobileMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+            mobileMenu.classList.remove('translate-x-full');
+            mobileMenu.classList.add('translate-x-0');
+        });
+        
+        closeMobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.add('translate-x-full');
+            mobileMenu.classList.remove('translate-x-0');
+            setTimeout(() => {
+                mobileMenu.classList.add('hidden');
+            }, 300);
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('translate-x-full') && !mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('translate-x-full');
+                        mobileMenu.classList.remove('translate-x-0');
+                        setTimeout(() => {
+                            mobileMenu.classList.add('hidden');
+                        }, 300);
+                    }
+                }
+            });
+        });
+        
+        // Add shadow to header on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('shadow-lg');
+            } else {
+                header.classList.remove('shadow-lg');
+            }
+        });
+    </script>
+<p style="border-radius: 8px; text-align: center; font-size: 12px; color: #fff; margin-top: 16px;position: fixed; left: 8px; bottom: 8px; z-index: 10; background: rgba(0, 0, 0, 0.8); padding: 4px 8px;">Made with <img src="https://enzostvs-deepsite.hf.space/logo.svg" alt="DeepSite Logo" style="width: 16px; height: 16px; vertical-align: middle;display:inline-block;margin-right:3px;filter:brightness(0) invert(1);"><a href="https://enzostvs-deepsite.hf.space" style="color: #fff;text-decoration: underline;" target="_blank" >DeepSite</a> - 🧬 <a href="https://enzostvs-deepsite.hf.space?remix=kliaskas/twende-education-foundation" style="color: #fff;text-decoration: underline;" target="_blank" >Remix</a></p></body>
+</html>
